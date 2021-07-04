@@ -1,15 +1,47 @@
+<?php
+
+session_start();
+if(!$_SESSION["loggedin"]){
+  $_SESSION["message"] = "Please login first";
+  header("Location: login.php");
+  exit();
+}
+
+require_once 'pdo.php';
+$stm = $pdo->prepare("select * from question where section_num = 6");
+$stm->execute();
+array_push($_SESSION["totalWeight"], 0);
+$_SESSION["totalWeight"][5] = 0;
+
+if(isset($_POST["submit"])){
+
+  for($i=44 ; $i<=49 ; $i++){
+
+    if(!isset($_POST["question_".$i]) || $_POST["question_".$i] == ""){
+      $_SESSION["message"] = "Please do not leave any fields empty";
+      header("Location: ProjectManagementIntegrationRisks.php");
+      exit();
+    }
+
+    $_SESSION["totalWeight"][5] = $_SESSION["totalWeight"][5] + $_POST["question_".$i];
+
+  }
+
+  $_SESSION["message"] = "";
+  header("Location: ProjectRequirementsRisks.php");
+  exit();
+
+}
+
+?>
 <html>
 <head>
   <title>Project Complexity and Risk Assessment</title>
 </head>
 <body>
-<?php
-require_once 'pdo.php';
-$stm = $pdo->prepare("select * from question where section_num = 6");
-$stm->execute();
-?>
 <h1>Section 6: Project Management Integration Risks (6 Questions)</h1>
-<form method="post" action="result.php">
+<p><?php echo $_SESSION["message"] ?></p>
+<form method="post">
 <ul style="list-style-type:none;">
   <?php while ($question = $stm->fetch(PDO::FETCH_OBJ)){?>
       <li>
@@ -23,8 +55,8 @@ $stm->execute();
            ?>
            <?php while ($choice = $stm2->fetch(PDO::FETCH_OBJ)){?>
              <ul>
-               <input type="radio" name="question_<?php echo $choice->id; ?>"
-               value="<?php echo $choice->id; ?>">
+               <input type="radio" name="question_<?php echo $question->id; ?>"
+               value="<?php echo $choice->weight; ?>">
                <?php echo $choice->choice_content; ?>
              </ul>
            <?php } ?>
@@ -33,13 +65,10 @@ $stm->execute();
   <?php } ?>
   </ul>
   <br>
-  <input type ="submit" value="Submit">
+  <input type ="submit" value="Submit" name="submit">
 </form>
 <form action="BusinessRisks.php">
   <input type="submit" value="Previous Section">
-</form>
-<form action="ProjectRequirementsRisks.php">
-  <input type="submit" value="Next Section">
 </form>
 </body>
 </html>

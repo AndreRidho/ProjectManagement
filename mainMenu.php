@@ -10,6 +10,10 @@ if(!$_SESSION["loggedin"]){
 
 if(isset($_POST["projRegist"])){
 
+  header("Location: registration.php");
+  exit();
+
+
 }else if(isset($_POST["projInfo"])){
 
   header("Location: projInfo.php");
