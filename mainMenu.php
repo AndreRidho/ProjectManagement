@@ -117,7 +117,7 @@ if(isset($_POST["projRegist"])){
 
         <input type="submit" class="btn btn-primary btn-lg active btn btn-space" role="button" aria-pressed="true" name="projInfo" value="Project Information" >
 
-        <input type="submit" class="btn btn-primary btn-lg active btn btn-space" name="maintenance" role="button" aria-pressed="true" value="Maintenance" id="mtnce">
+        <input type="submit" class="btn btn-primary btn-lg active btn btn-space" name="maintenance" role="button" aria-pressed="true" value="Maintenance">
 
     </div>
     </div>
