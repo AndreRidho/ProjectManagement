@@ -35,12 +35,12 @@ if(isset($_POST["back"])){
   }
 
 
-        th, td {
-            width:1000px;
-            text-align:center;
-            border:5px solid #ebfeff;
-            padding:10px;
-        }
+  th, td {
+    width:1000px;
+    text-align:center;
+    border:5px solid #ebfeff;
+    padding:10px;
+  }
 
   body{
     background-color: #ebfeff;
@@ -70,27 +70,27 @@ if(isset($_POST["back"])){
 
   .sidenav {
     width: 300px;
-      height: 100%;
-    }
+    height: 100%;
+  }
 
-    .downBro{
-      padding-top: 30px;
-    }
-    .center {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-}
+  .downBro{
+    padding-top: 30px;
+  }
+  .center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
 
-    footer {
-      padding: 15px;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background-color: #343a42;
-    }
+  footer {
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #343a42;
+  }
   </style>
 
 </head>
@@ -109,10 +109,10 @@ if(isset($_POST["back"])){
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
 
-<form method="post">
-          <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-          </li>
-        </form>
+          <form method="post">
+            <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
+            </li>
+          </form>
         </ul>
       </div>
     </div>
@@ -121,48 +121,48 @@ if(isset($_POST["back"])){
 
 
 
-    <div class="container">
+  <div class="container">
 
-  <div class="row">
-  <div class="col-sm-20 text-center downBro">
+    <div class="row" style="margin-bottom: 100px;">
+      <div class="col-sm-20 text-center downBro">
 
         <h1>Question List</h1>
         <hr>
 
         <table class="table table">
-    <thead>
-      <tr>
-        <th scope="col">Project ID</th>
-        <th scope="col">Name</th>
+          <thead>
+            <tr>
+              <th scope="col">Project ID</th>
+              <th scope="col">Name</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-        $stmt = $pdo->query("SELECT id, section_num, question_num FROM question");
-        while ( ($row = $stmt->fetch(PDO::FETCH_ASSOC)) ) {
-            echo "<tr><td>";
-            echo("Section ".$row['section_num']." Question ".$row['question_num']);
-            echo("</td><td>");
-            echo('<a href="editQPage.php?id='. $row['id'].'">Edit</a>');
-            echo("</td></tr>\n");
-        }
-      ?>
-    </tbody>
-  </table>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $stmt = $pdo->query("SELECT id, section_num, question_num FROM question");
+            while ( ($row = $stmt->fetch(PDO::FETCH_ASSOC)) ) {
+              echo "<tr><td>";
+              echo("Section ".$row['section_num']." Question ".$row['question_num']);
+              echo("</td><td>");
+              echo('<a href="editQPage.php?id='. $row['id'].'">Edit</a>');
+              echo("</td></tr>\n");
+            }
+            ?>
+          </tbody>
+        </table>
 
+      </div>
     </div>
-  </div>
 
-      <footer class="container-fluid text-left">
-        <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
-        <script>
-          function goBack() {
-            window.history.back();
-          }
-        </script>
-      </footer>
+    <footer class="container-fluid text-left">
+      <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
+      <script>
+      function goBack() {
+        window.history.back();
+      }
+      </script>
+    </footer>
 
-</body>
+  </body>
 
-</html>
+  </html>

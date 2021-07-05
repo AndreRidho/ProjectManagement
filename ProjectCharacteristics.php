@@ -16,7 +16,11 @@ $_SESSION["totalWeight"][0] = 0;
 
 if(isset($_POST["submit"])){
 
-
+  if($_POST["question_2"] == 1){
+    $_SESSION["procurement"] = false;
+  }else{
+    $_SESSION["procurement"] = true;
+  }
 
   if($_POST["question_1"] == "5" && $_POST["question_3"] == "5" && $_POST["question_11"] == "5"){
     $_SESSION["message"] = "";
@@ -37,11 +41,7 @@ if(isset($_POST["submit"])){
 
     }
 
-    if($_POST["question_2"] == 1){
-      $_SESSION["procurement"] = false;
-    }else{
-      $_SESSION["procurement"] = true;
-    }
+
 
     $_SESSION["message"] = "";
     header("Location: StrategicManagementRisks.php");
@@ -128,8 +128,7 @@ if(isset($_POST["submit"])){
         <ul class="nav navbar-nav navbar-right">
 
 <form method="post">
-          <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-          </li>
+
         </form>
         </ul>
       </div>
@@ -140,7 +139,7 @@ if(isset($_POST["submit"])){
     <h1>Section 1: Project Characteristics (18 Questions)</h1>
   </div>
 
-<p><?php echo $_SESSION["message"] ?></p>
+<h2 style="color:red;margin-left: 40px;"><?php echo $_SESSION["message"] ?></h2>
 <form method="post">
 <ul style="list-style-type:none;">
   <?php while ($question = $stm->fetch(PDO::FETCH_OBJ)){?>
@@ -174,12 +173,6 @@ if(isset($_POST["submit"])){
 </form>
 
 <footer class="container-fluid text-left">
-  <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
 </footer>
 
 </body>

@@ -73,8 +73,7 @@ $question = $stmt->fetch(PDO::FETCH_ASSOC);
           <ul class="nav navbar-nav navbar-right">
 
   <form method="post">
-            <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-            </li>
+
           </form>
           </ul>
         </div>

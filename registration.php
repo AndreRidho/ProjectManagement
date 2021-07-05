@@ -157,8 +157,6 @@ if(isset($_POST['submit'])){
         <ul class="nav navbar-nav navbar-right">
 
           <form method="post">
-            <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-            </li>
           </form>
         </ul>
       </div>
@@ -259,7 +257,7 @@ if(isset($_POST['submit'])){
       <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
       <script>
       function goBack() {
-        window.history.back();
+        window.location.replace("mainMenu.php");
       }
       </script>
     </footer>

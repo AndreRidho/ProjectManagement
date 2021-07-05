@@ -108,8 +108,6 @@ exit();
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <style>
   table{
-    background-color: #343a42;
-    color: white;
     border-collapse: collapse;
   }
 
@@ -226,37 +224,42 @@ exit();
               <div class="col-lg-9">
               </div>
 
-              <div class="form-group row">
+              <div class="form-group">
+                <table>
                 <?php
                 for ($i=0 ; $i<$_SESSION["count"] ; $i++) {
                   if($i < count($choices)){
                     $choice = $choices[$i];
                     echo '
-                    Choice '.($i+1).' : <textarea name="choice_content'.($i+1).'" form="inputForm">'.$choice["choice_content"].'</textarea>';
+                    <tr><td>Choice '.($i+1).' :</td><td> <textarea name="choice_content'.($i+1).'" form="inputForm">'.$choice["choice_content"].'</textarea></td></tr>';
                     ?>
                     <div class="col-lg-9">
                       <?php
                       echo '
-                      Choice '.($i+1).' weight: <input type="text" name="weight'.($i+1).'" value="'.$choice["weight"].'">';  ?>
+                      <tr><td>Choice '.($i+1).' weight:</td><td><input type="text" name="weight'.($i+1).'" value="'.$choice["weight"].'"></td></tr>';  ?>
                     </div>
                   </div>
                   <div class="form-group row">
                     <?php
                   }  else{
                     echo '
-                    Choice '.($i+1).' : <textarea name="choice_content'.($i+1).'" form="inputForm"></textarea>';
+                    <tr><td>Choice '.($i+1).' :</td><td><textarea name="choice_content'.($i+1).'" form="inputForm"></textarea></td></tr>';
                     echo '    <div class="col-lg-9">
-                    Choice '.($i+1).' weight: <input type="text" name="weight'.($i+1).'" value="0"></td></tr>';
+                    <tr><td>Choice '.($i+1).' weight:</td><td><input type="text" name="weight'.($i+1).'" value="0"></td></tr>';
 
 
                   }
                 }
                 ?>
+              </table>
               </div></div>
 
               <div class="form-group row">
                 <div class="col-md-3">
                   <input type="reset" class="btn btn-secondary" value="Reset">
+                </div>
+                <div class="col-md-3">
+                  <input type="submit" class="btn btn-secondary" value="Add Choice" name="add">
                 </div>
                 <div class="col-md-3">
                   <input type="submit" class="btn btn-primary" name="submit" value="Save Changes">

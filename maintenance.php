@@ -24,7 +24,7 @@ else if(isset($_POST["back"])){
 
 <html>
   <head>
-    <title>Maintenance</title>
+    <title>Main Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -79,8 +79,7 @@ else if(isset($_POST["back"])){
           <ul class="nav navbar-nav navbar-right">
 
   <form method="post">
-            <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-            </li>
+
           </form>
           </ul>
         </div>
@@ -117,7 +116,7 @@ else if(isset($_POST["back"])){
       <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
       <script>
         function goBack() {
-          window.history.back();
+          window.location.replace("mainMenu.php");
         }
       </script>
     </footer>

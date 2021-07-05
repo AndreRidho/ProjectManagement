@@ -99,8 +99,7 @@ if(isset($_POST["back"])){
         <ul class="nav navbar-nav navbar-right">
 
 <form method="post">
-          <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-          </li>
+
         </form>
         </ul>
       </div>
@@ -226,7 +225,7 @@ if(isset($_POST["back"])){
         <button onclick="goBack()" class="btn btn-primary btn-lg">Back To Main Menu</button>
         <script>
           function goBack() {
-            window.location.href='http://localhost/webappgroup/mainMenu.php'
+            window.location.href='mainMenu.php'
           }
         </script>
       </footer>

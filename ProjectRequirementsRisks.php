@@ -144,8 +144,7 @@ if(isset($_POST["submit"])){
         <ul class="nav navbar-nav navbar-right">
 
 <form method="post">
-          <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-          </li>
+
         </form>
         </ul>
       </div>
@@ -156,7 +155,7 @@ if(isset($_POST["submit"])){
 <h1>Section 7: Project Requirements Risks (15 Questions)</h1>
   </div>
 
-<p><?php echo $_SESSION["message"] ?></p>
+<h2 style="color:red;margin-left: 40px;"><?php echo $_SESSION["message"] ?></h2>
 <form method="post">
 <ul style="list-style-type:none;">
   <?php while ($question = $stm->fetch(PDO::FETCH_OBJ)){?>
@@ -193,7 +192,7 @@ if(isset($_POST["submit"])){
   <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
   <script>
     function goBack() {
-      window.history.back();
+      window.location.replace("ProjectManagementIntegrationRisks.php");
     }
   </script>
 </footer>

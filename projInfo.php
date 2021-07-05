@@ -19,7 +19,7 @@ if(isset($_POST["back"])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project Information</title>
+  <title>Choose</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -35,12 +35,12 @@ if(isset($_POST["back"])){
   }
 
 
-        th, td {
-            width:1000px;
-            text-align:center;
-            border:5px solid #ebfeff;
-            padding:10px;
-        }
+  th, td {
+    width:1000px;
+    text-align:center;
+    border:5px solid #ebfeff;
+    padding:10px;
+  }
 
   body{
     background-color: #ebfeff;
@@ -70,23 +70,23 @@ if(isset($_POST["back"])){
 
   .sidenav {
     width: 300px;
-      height: 100%;
-    }
+    height: 100%;
+  }
 
-    .downBro{
-      padding-top: 30px;
-    }
+  .downBro{
+    padding-top: 30px;
+  }
 
 
-    footer {
-      padding: 15px;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background-color: #343a42;
-    }
+  footer {
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #343a42;
+  }
   </style>
 
 </head>
@@ -105,10 +105,9 @@ if(isset($_POST["back"])){
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
 
-<form method="post">
-          <li><button type="submit" class="btn btn-primary" name="logout" value="Logout">Logout</button>
-          </li>
-        </form>
+          <form method="post">
+
+          </form>
         </ul>
       </div>
     </div>
@@ -117,50 +116,50 @@ if(isset($_POST["back"])){
 
 
 
-    <div class="container ">
+  <div class="container "  style="margin-bottom: 100px;">
 
-  <div class="row">
+    <div class="row">
 
-  <div class="col-sm-20 text-center downBro">
+      <div class="col-sm-20 text-center downBro">
         <h1>Project List</h1>
         <hr>
 
         <table class="table table">
-    <thead>
-      <tr>
-        <th scope="col">Project ID</th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-        $stmt = $pdo->query("SELECT id, name FROM project");
-        while ( ($row = $stmt->fetch(PDO::FETCH_ASSOC)) ) {
-            echo "<tr><td>";
-            echo($row['id']);
-            echo("</td><td>");
-            echo($row['name']);
-            echo("</td><td>");
-            echo('<a href="projInfoDetails.php?id='. $row['id'].'">Information</a>');
-            echo("</td></tr>\n");
-        }
-      ?>
-    </tbody>
-  </table>
+          <thead>
+            <tr>
+              <th scope="col">Project ID</th>
+              <th scope="col">Name</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $stmt = $pdo->query("SELECT id, name FROM project");
+            while ( ($row = $stmt->fetch(PDO::FETCH_ASSOC)) ) {
+              echo "<tr><td>";
+              echo($row['id']);
+              echo("</td><td>");
+              echo($row['name']);
+              echo("</td><td>");
+              echo('<a href="projInfoDetails.php?id='. $row['id'].'">Information</a>');
+              echo("</td></tr>\n");
+            }
+            ?>
+          </tbody>
+        </table>
 
+      </div>
     </div>
-  </div>
 
-      <footer class="container-fluid text-left">
-        <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
-        <script>
-          function goBack() {
-            window.history.back();
-          }
-        </script>
-      </footer>
+    <footer class="container-fluid text-left">
+      <button onclick="goBack()" class="btn btn-primary btn-lg">Back</button>
+      <script>
+      function goBack() {
+        window.location.replace("mainMenu.php");
+      }
+      </script>
+    </footer>
 
-</body>
+  </body>
 
-</html>
+  </html>
